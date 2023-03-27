@@ -12,4 +12,4 @@ const RecipeSchema = new mongoose.Schema({
    userOwner: { type: mongoose.Schema.Types.ObjectId, ref: "users", required: true}
 })
 
-export const RecipeModel = mongoose.model("recipes". UserSchema)
+export const RecipeModel = mongoose.model("recipes", RecipeSchema)

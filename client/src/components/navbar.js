@@ -8,7 +8,7 @@ export const Navbar = () =>{
 
     const logout = () =>{
         setCookies("access_token", "")
-        wondow.localStorage.removeItem("userID")
+        window.localStorage.removeItem("userID")
         navigate("/auth")
     }
     return(

@@ -8,7 +8,7 @@ const router = express.Router()
 router.post("/register", async (req, res) =>{
     const{ username, password} = req.body
 
-    const user = await userModel.findOne({username})
+    const user = await UserModel.findOne({username})
     if (user){
         return res.json({message: "User already exist"})
     }
@@ -28,7 +28,7 @@ router.post("/login", async (req, res) =>{
         return res.json({message: "User Doesnt Exist!"})
     }
 
-    const isPasswordValid = await bcrypt(password, user.password)
+    const isPasswordValid = await bcrypt.compare(password, user.password)
 
     if (!isPasswordValid) {
         return res.json({message: "Username or password is invalid"})
